@@ -30,5 +30,6 @@ int main(int argc, char *argv[]) {
 			endl(cout);
 		}
 	}
+	
 	return 0;
 }
