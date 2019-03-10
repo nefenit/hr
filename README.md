@@ -1,7 +1,7 @@
 # hr
 > Horizontal bar for your terminal
 
-# Version
+# Versions
 
 | Filename | Language |  Standard  |
 |:---------|:--------:|:----------:|
