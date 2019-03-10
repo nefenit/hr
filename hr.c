@@ -4,7 +4,7 @@
  */
  
  #include <stdio.h>
- #inlcude <string.h>
+ #include <string.h>
  #include <sys/ioctl.h>
  
  int main(int argc, char *argv[]) {
