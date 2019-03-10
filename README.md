@@ -1,2 +1,2 @@
 # hr
-Writes horizontal bar to standard output
+> Horizontal bar for your terminal
