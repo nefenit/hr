@@ -19,9 +19,9 @@
 			putchar('#');
 		putchar('\n');
 	} else {
-		for(j = 1; j < argc; j++) {
+		for(j = 1; j < argc; ++j) {
 			len = strlen(argv[j]);
-			for(i = 0; i < cols; i++)
+			for(i = 0; i < cols; ++i)
 				putchar(argv[j][i%len]);
 			putchar('\n');
 		}
