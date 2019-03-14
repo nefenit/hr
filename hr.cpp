@@ -23,9 +23,9 @@ int main(int argc, char *argv[]) {
 			cout.put('#');
 		endl(cout);
 	} else {
-		for(int j = 1; j < argc; j++) {
+		for(int j = 1; j < argc; ++j) {
 			int len= strlen(argv[j]);
-			for(int i = 0; i < cols; i++)
+			for(int i = 0; i < cols; ++i)
 				cout.put(argv[j][i%len]);
 			endl(cout);
 		}
