@@ -6,5 +6,7 @@ CFLAGS=-Wall -pedantic -ansi -O2
 all:
 	@$(CC) $(CFLAGS) hr.c -o hr
 
+.PHONY: clean
+
 clean:
 	@rm hr
