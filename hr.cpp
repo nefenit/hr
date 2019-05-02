@@ -12,11 +12,10 @@ using std::endl;
 using std::strlen;
 
 int main(int argc, char *argv[]) {
-	int cols;
 	struct winsize w;
 	
 	ioctl(0, TIOCGWINSZ, &w);
-	cols = w.ws_col > 0 ? w.ws_col : 80;
+	int cols = w.ws_col > 0 ? w.ws_col : 80;
 	
 	if(argc < 2) {
 		while(cols--)
