@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 		endl(cout);
 	} else {
 		for(int j = 1; j < argc; ++j) {
-			int len= strlen(argv[j]);
+			int len = strlen(argv[j]);
 			for(int i = 0; i < cols; ++i)
 				cout.put(argv[j][i%len]);
 			endl(cout);
