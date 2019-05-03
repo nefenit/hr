@@ -9,7 +9,6 @@
  
  int main(int argc, char *argv[]) {
 	struct winsize w;
-	
 	ioctl(0, TIOCGWINSZ, &w);
 	int cols = w.ws_col > 0 ? w.ws_col : 80;
 	
