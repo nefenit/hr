@@ -3,10 +3,10 @@
 CC=cc
 CFLAGS=-Wall -pedantic -ansi -O2 -g
 
+.PHONY: all
 all:
-	@$(CC) $(CFLAGS) hr.c -o hr
+	@$(CC) hr89.c -o hr $(CFLAGS) 
 
 .PHONY: clean
-
 clean:
 	@rm hr
