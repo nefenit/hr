@@ -1,6 +1,6 @@
 /* hr.cpp - writes horizontal bar to terminal
  * (c) Copyright 2019 Bartosz Mierzynski
- * Written in C++98
+ * Written in C++17
  */
 
 #include <iostream>
