@@ -12,6 +12,8 @@
 
 #ifndef ARG_MAX
 #define AMAX _POSIX_ARG_MAX
+#else
+#define AMAX ARG_MAX
 #endif
 
 int main(int argc, char *argv[]) {
