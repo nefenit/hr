@@ -3,10 +3,10 @@
  * Written in ANSI C (C89)
  */
  
- #include <stdio.h>
- #include <string.h>
+#include <stdio.h>
+#include <string.h>
 
- ##ifdef __WIN32__
+#ifdef __WIN32__
 #include <windows.h>
 #else
 #include <sys/ioctl.h>
