@@ -5,7 +5,7 @@ CFLAGS=-Wall -pedantic -ansi -O2 -g
 
 .PHONY: all
 all:
-	@$(CC) hr89.c -o hr $(CFLAGS) 
+	@$(CC) hr89w.c -o hr $(CFLAGS) 
 
 .PHONY: clean
 clean:
