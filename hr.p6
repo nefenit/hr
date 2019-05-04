@@ -4,20 +4,22 @@ hr.c - writes horizontal bar to standard output
 (c) Copyright 2019 Bartosz Mierzynski
 =end comment
 
-my $cols = 80;
-
-if @*ARGS.elems == 0 {
+multi sub MAIN() {
+	my $cols = 80;
 	while $cols-- {
 		print '#';
 	}
 	put '';
-} else {
-	for @*ARGS -> $arg {
+}
+
+multi sub MAIN(*@args) {
+	my $cols = 80;
+	for @args -> $arg {
 		my @chars = $arg.comb;
 		my $len = @chars.elems;
 		loop (my $i = 0; $i < $cols; ++$i) {
 			print @chars[$i % $len];
 		}
 		put '';
-	}  
+	}
 }
