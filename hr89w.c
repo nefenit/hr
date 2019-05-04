@@ -10,11 +10,15 @@
 #include <sys/ioctl.h>
 #include <wchar.h>
 
-#ifndef ARG_MAX
-#define AMAX _POSIX_ARG_MAX
+#ifdef ARG_MAX
+ #define AMAX ARG_MAX
 #else
-#define AMAX ARG_MAX
-#endif
+ #ifdef _POSIX_ARG_MAX
+  #define AMAX _POSIX_ARG_MAX
+ #else
+  #define AMAX 4096
+ #endif /* _POSIX_ARG_MAX */
+#endif /* ARG_MAX */
 
 int main(int argc, char *argv[]) {
  	int i, j, len, cols;
