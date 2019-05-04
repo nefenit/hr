@@ -2,7 +2,6 @@
 =begin comment
 hr.c - writes horizontal bar to standard output
 (c) Copyright 2019 Bartosz Mierzynski
-Written in Perl 6
 =end comment
 
 my $cols = 80;
