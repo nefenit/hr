@@ -34,6 +34,7 @@
 #endif /* __WIN32__ */
 
 int main(int argc, char *argv[]) {
+	int cols;
 #ifdef __WIN32__
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
 	
