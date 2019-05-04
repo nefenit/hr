@@ -10,15 +10,23 @@
 #include <sys/ioctl.h>
 #include <wchar.h>
 
-#ifdef ARG_MAX
- #define AMAX ARG_MAX
+#ifdef __WIN32__
+  #if WINVER >= _WIN32_WINNT_WINXP  || _WIN32_WINNT >=_ WIN32_WINNT_WINXP 
+    #define AMAX 8191
+  #else
+    #define AMAX 2047
+  #endif /* WINVER >= _WIN32_WINNT_WINXP  || _WIN32_WINNT >=_ WIN32_WINNT_WINXP */
 #else
- #ifdef _POSIX_ARG_MAX
-  #define AMAX _POSIX_ARG_MAX
- #else
-  #define AMAX 4096
- #endif /* _POSIX_ARG_MAX */
-#endif /* ARG_MAX */
+  #ifdef ARG_MAX
+    #define AMAX ARG_MAX
+  #else
+    #ifdef _POSIX_ARG_MAX
+      #define AMAX _POSIX_ARG_MAX
+    #else
+      #define AMAX 4096
+    #endif /* _POSIX_ARG_MAX */
+  #endif /* ARG_MAX */
+#endif /* __WIN32__ */
 
 int main(int argc, char *argv[]) {
  	int i, j, len, cols;
