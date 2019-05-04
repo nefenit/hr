@@ -11,11 +11,11 @@
 #include <wchar.h>
 
 #ifdef __WIN32__
-  #if WINVER >= _WIN32_WINNT_WINXP  || _WIN32_WINNT >=_ WIN32_WINNT_WINXP 
+  #if WINVER >= _WIN32_WINNT_WINXP  || _WIN32_WINNT >= _WIN32_WINNT_WINXP 
     #define AMAX 8191
   #else
     #define AMAX 2047
-  #endif /* WINVER >= _WIN32_WINNT_WINXP  || _WIN32_WINNT >=_ WIN32_WINNT_WINXP */
+  #endif /* WINVER >= _WIN32_WINNT_WINXP  || _WIN32_WINNT >= _WIN32_WINNT_WINXP */
 #else
   #ifdef ARG_MAX
     #define AMAX ARG_MAX
