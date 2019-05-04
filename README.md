@@ -5,6 +5,7 @@
 
 | Filename | Language |  Standard    |   Width  | UTF-8 |
 |:---------|:---------|:------------:|:--------:|:-----:|
+| hr89w.c  | C        | ANSI C (C89) | Terminal |  Yes  |
 | hr89.c   | C        | ANSI C (C89) | Terminal |  No   |
 | hr99.c   | C        | C99          | Terminal |  No   |
 | hr98.cpp | C++      | C++98        | Terminal |  No   |
