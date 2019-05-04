@@ -1,5 +1,5 @@
 # hr
-> Horizontal bar for your terminal
+> :straight_ruler: for your terminal
 
 ## Versions
 
