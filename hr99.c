@@ -33,6 +33,7 @@
 int main(int argc, char *argv[]) {
 #ifdef __WIN32__
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	
 	if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
 		cols = csbi.dwSize.X;
 	else
