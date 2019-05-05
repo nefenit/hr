@@ -5,7 +5,7 @@
  */
 
 if(extension_loaded("ncurses")) {
-	$nc = ncurses_init();
+	$ncurses_session = ncurses_init();
 	ncurses_getmaxyx(STDSCR, $height, $width);
 	$cols = $width ?: 80;
 	ncurses_end();
