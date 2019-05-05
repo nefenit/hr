@@ -3,8 +3,15 @@
 /* hr.c - writes horizontal bar to standard output
  * (c) Copyright 2019 Bartosz Mierzynski
  */
- 
-$cols = 80;
+
+if(extension_loaded("ncurses")) {
+	$nc = ncurses_init();
+	ncurses_getmaxyx(STDSCR, $height, $width);
+	$cols = $width ?: 80;
+	ncurses_end();
+} else {
+	$cols = 80;
+}
 
 if($argc < 2) {
 	while($cols--)
