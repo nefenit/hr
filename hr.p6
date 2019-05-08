@@ -1,4 +1,6 @@
 #!/usr/bin/env perl6
+use v6;
+
 =begin comment
 hr.c - writes horizontal bar to standard output
 (c) Copyright 2019 Bartosz Mierzynski
