@@ -1,4 +1,5 @@
 #!/usr/bin/env python2
+# -*- coding: utf-8 -*-
 '''
  hr - horizontal bar for your terminal
  (c) Copyright 2019 Bartosz Mierzynski
