@@ -1,11 +1,15 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
 '''
  hr - horizontal bar for your terminal
- (c) Copyright 2019 Bartosz Mierzynski
+ (c) Copyright 2019 Bartosz Mierzyński
 '''
 
 from sys import argv, exit, stdout
 from os import get_terminal_size
+
+__author__    = "Bartosz Mierzyński"
+__copyright__ = "(c) Copyright 2019 Bartosz Mierzyński"
 
 def main():
 	try:
