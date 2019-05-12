@@ -14,10 +14,8 @@ multi sub MAIN() {
 multi sub MAIN(*@args) {
 	my $cols = 80;
 	for @args -> $arg {
-		my @chars = $arg.comb;
-		my $len = @chars.elems;
 		for 0..($cols - 1) {
-			print @chars[$_ % $len];
+			print $arg.comb[$_ % $arg.comb.elems];
 		}
 		put '';
 	}
