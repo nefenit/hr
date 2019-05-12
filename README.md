@@ -19,5 +19,5 @@
 | hr.php   | PHP 7        | Terminal* |        :x:       |:heavy_check_mark:|:heavy_check_mark:|
 | hr.lua   | Lua 5.3      | Terminal**|        :x:       |:heavy_check_mark:|:heavy_check_mark:| 
 
-\* Terminal width only with ncurses module
+\* Terminal width only with ncurses module \
 \** Downloads width from COLUMNS environment variable
