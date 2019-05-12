@@ -6,7 +6,6 @@
 #include <climits>
 #include <clocale>
 #include <cstdlib>
-#include <cstring>
 #include <cwchar>
 #include <iostream>
 
