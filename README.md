@@ -9,8 +9,8 @@
 | hr89.c   | ANSI C (C89) | Terminal |        :x:       |:heavy_check_mark:|:heavy_check_mark:|
 | hr99w.c  | C99          | Terminal |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | hr99.c   | C99          | Terminal |        :x:       |:heavy_check_mark:|:heavy_check_mark:|
-| hr98.cpp | C++98        | Terminal |        :x:       |
-| hr17.cpp | C++17        | Terminal |        :x:       |
+| hr98.cpp | C++98        | Terminal |        :x:       |:heavy_check_mark:|:heavy_check_mark:|
+| hr17.cpp | C++17        | Terminal |        :x:       |:heavy_check_mark:|:heavy_check_mark:|
 | hr3.py   | Python 3.x   | Terminal |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | hr2.py   | Python 2.7   | Terminal |        :x:       |        :x:       |:heavy_check_mark:|
 | hr.p6    | Perl 6       |    80    |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
