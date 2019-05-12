@@ -14,7 +14,7 @@ __author__    = "Bartosz Mierzynski"
 __copyright__ = "(c) Copyright 2019 Bartosz Mierzynski"
 
 def main():
-	rows, cols, rowsp, colsp = unpack('HHHH', ioctl(0, TIOCGWINSZ, pack('HHHH', 0, 0, 0, 0)))
+	rows, cols, rowspx, colspx = unpack('HHHH', ioctl(0, TIOCGWINSZ, pack('HHHH', 0, 0, 0, 0)))
         if cols == 0:
             cols = 80
 
