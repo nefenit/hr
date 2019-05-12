@@ -8,10 +8,7 @@ hr.c - writes horizontal bar to standard output
 
 multi sub MAIN() {
 	my $cols = 80;
-	while $cols-- {
-		print '#';
-	}
-	put '';
+	put '#' x $cols;
 }
 
 multi sub MAIN(*@args) {
