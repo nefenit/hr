@@ -5,7 +5,6 @@
 
 #include <iostream>
 #include <cstring>
-#include <sys/ioctl.h>
 
 #ifdef __WIN32__
 #include <windows.h>
