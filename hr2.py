@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/env python2
 '''
  hr - horizontal bar for your terminal
  (c) Copyright 2019 Bartosz Mierzynski
@@ -9,6 +9,8 @@ from fcntl import ioctl
 from struct import pack, unpack
 from termios import TIOCGWINSZ
 
+__author__    = "Bartosz Mierzyński"
+__copyright__ = "(c) Copyright 2019 Bartosz Mierzyński"
 
 def main():
 	rows, cols, rowsp, colsp = unpack('HHHH', ioctl(0, TIOCGWINSZ, pack('HHHH', 0, 0, 0, 0)))
