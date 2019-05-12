@@ -10,8 +10,8 @@ from fcntl import ioctl
 from struct import pack, unpack
 from termios import TIOCGWINSZ
 
-__author__    = "Bartosz Mierzyński"
-__copyright__ = "(c) Copyright 2019 Bartosz Mierzyński"
+__author__    = "Bartosz Mierzynski"
+__copyright__ = "(c) Copyright 2019 Bartosz Mierzynski"
 
 def main():
 	rows, cols, rowsp, colsp = unpack('HHHH', ioctl(0, TIOCGWINSZ, pack('HHHH', 0, 0, 0, 0)))
