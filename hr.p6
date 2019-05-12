@@ -16,8 +16,8 @@ multi sub MAIN(*@args) {
 	for @args -> $arg {
 		my @chars = $arg.comb;
 		my $len = @chars.elems;
-		loop (my $i = 0; $i < $cols; ++$i) {
-			print @chars[$i % $len];
+		for 0..($cols - 1) {
+			print @chars[$_ % $len];
 		}
 		put '';
 	}
