@@ -14,7 +14,7 @@
 | hr17w.cpp| C++17        | Terminal   |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | hr17.cpp | C++17        | Terminal   |        :x:       |:heavy_check_mark:|:heavy_check_mark:|
 | hr3.py   | Python 3.x   | Terminal   |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-| hr2.py   | Python 2.7   | Terminal   |        :x:       |        :x:       |:heavy_check_mark:|
+| hr2.py   | Python 2.7   | Terminal   |        :x:       |:heavy_check_mark:|:heavy_check_mark:|
 | hr.p6    | Perl 6       | Terminal** |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | hr.php   | PHP 7        | Terminal*  |        :x:       |:heavy_check_mark:|:heavy_check_mark:|
 | hr.lua   | Lua 5.3      | Terminal** |        :x:       |:heavy_check_mark:|:heavy_check_mark:| 
