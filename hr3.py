@@ -6,7 +6,7 @@
 '''
 
 from sys import argv, exit, stdout
-from os import get_terminal_size
+from os  import get_terminal_size
 
 __author__    = "Bartosz Mierzynski"
 __copyright__ = "(c) Copyright 2019 Bartosz Mierzynski"
