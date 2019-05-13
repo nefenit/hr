@@ -15,8 +15,9 @@ __copyright__ = "(c) Copyright 2019 Bartosz Mierzynski"
 def main():
         if system() == 'Windows':
             try:
-                from ctypes import windll, create_string_buffer
-                h    = windll.kernel32.GetStdHandle(-12)
+                from ctypes     import windll, create_string_buffer
+		from subprocess import STD_OUTPUT_HANDLE
+                h    = windll.kernel32.GetStdHandle(STD_OUTPUT_HANDLE)
                 csbi = create_string_buffer(22)
                 res  = windll.kernel32.GetConsoleScreenBufferInfo(h, csbi)
                 if res:
