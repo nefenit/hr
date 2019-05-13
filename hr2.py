@@ -36,7 +36,7 @@ def main():
             except:
                 pass
 
-        if cols == 0:
+        if not cols:
             cols = 80
 
 	if len(argv) < 2:
