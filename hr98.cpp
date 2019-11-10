@@ -6,20 +6,15 @@
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
-
 #ifdef __WIN32__
 #include <windows.h>
-#else
-#include <sys/ioctl.h>
-#endif /* __WIN32__ */
-
-#ifdef __WIN32__
   #if WINVER >= _WIN32_WINNT_WINXP  || _WIN32_WINNT >= _WIN32_WINNT_WINXP 
     #define AMAX 8191
   #else
     #define AMAX 2047
   #endif /* WINVER >= _WIN32_WINNT_WINXP  || _WIN32_WINNT >= _WIN32_WINNT_WINXP */
 #else
+#include <sys/ioctl.h>
   #ifdef ARG_MAX
     #define AMAX ARG_MAX
   #else
