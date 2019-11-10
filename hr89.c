@@ -4,6 +4,7 @@
  */
  
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #ifdef __WIN32__
@@ -32,20 +33,27 @@
 
 int main(int argc, char *argv[]) {
  	int i, j, len, cols;
+ 	char* columns;
 #ifdef __WIN32__
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
-	
-	if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
-		cols = csbi.dwSize.X;
-	else
-		cols = 80;
 #else
 	struct winsize w;
-	
-	ioctl(0, TIOCGWINSZ, &w);
-	cols = w.ws_col > 0 ? w.ws_col : 80;
 #endif /* __WIN32__ */
-	
+
+	if((columns = getenv("COLUMNS")) && (strlen(columns))) {
+		cols = atoi(columns);
+	} else {
+#ifdef __WIN32__
+		if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
+			cols = csbi.dwSize.X;
+		else
+			cols = 80;
+#else
+		ioctl(0, TIOCGWINSZ, &w);
+		cols = w.ws_col > 0 ? w.ws_col : 80;
+#endif /* __WIN32__ */
+	}
+
 	if(argc < 2) {
 		while(cols--)
 			putchar('#');

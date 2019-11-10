@@ -3,8 +3,9 @@
  * Written in C++98
  */
 
-#include <iostream>
+#include <cstdlib>
 #include <cstring>
+#include <iostream>
 
 #ifdef __WIN32__
 #include <windows.h>
@@ -36,19 +37,25 @@ using std::strlen;
 
 int main(int argc, char *argv[]) {
 	int cols;
+	char* columns;
+
+	if((columns = getenv("COLUMNS")) && (strlen(columns))) {
+		cols = atoi(columns);
+	} else {
 #ifdef __WIN32__
-	CONSOLE_SCREEN_BUFFER_INFO csbi;
-	
-	if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
-		cols = csbi.dwSize.X;
-	else
-		cols = 80;
+		CONSOLE_SCREEN_BUFFER_INFO csbi;
+		
+		if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
+			cols = csbi.dwSize.X;
+		else
+			cols = 80;
 #else
-	winsize w;
-	
-	ioctl(0, TIOCGWINSZ, &w);
-	cols = w.ws_col > 0 ? w.ws_col : 80;
+		winsize w;
+		
+		ioctl(0, TIOCGWINSZ, &w);
+		cols = w.ws_col > 0 ? w.ws_col : 80;
 #endif /* __WIN32__ */
+	}
 	
 	if(argc < 2) {
 		while(cols--)
