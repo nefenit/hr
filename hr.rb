@@ -5,8 +5,15 @@
  * Written in Ruby
 =end
 require 'io/console'
+require 'pp'
 
-rows, cols = IO.console.winsize	
+cols = ENV["COLUMNS"]
+if cols.nil? or cols == ""
+  rows, cols = IO.console.winsize	
+else
+  cols = cols.to_i
+end
+
 if ARGV.length == 0
   while cols > 0 do
     print "#";
