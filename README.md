@@ -22,3 +22,37 @@
 
 \* Can only fetch width from ncurses module \
 \** Can only fetch width from COLUMNS environment variable
+
+## Usage
+
+```sh
+$ hr
+########################################...
+```
+
+```sh
+$ COLUMS=3 hr
+###
+```
+
+```fish
+$ env COLUMS=3 hr
+###
+```
+
+```sh
+$ hr 123 qwerty
+1231231231231231231231231231231231231231...
+qwertyqwertyqwertyqwertyqwertyqwertyqwer...
+```
+
+```sh
+$ COLUMNS=7 hr 123 qwerty
+1231231
+qwertyq
+```
+```fish
+$ env COLUMNS=7 hr 123 qwerty
+1231231
+qwertyq
+```
