@@ -19,7 +19,7 @@ if ARGV.length == 0
     print "#"
     cols -= 1
   end
-  puts;
+  puts
 else
   for arg in ARGV
     for i in 0..cols-1
