@@ -31,12 +31,12 @@ $ hr
 ```
 
 ```sh
-$ COLUMS=5 hr
+$ COLUMNS=5 hr
 #####
 ```
 
 ```fish
-$ env COLUMS=5 hr
+$ env COLUMNS=5 hr
 #####
 ```
 
