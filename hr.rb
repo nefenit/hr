@@ -16,15 +16,15 @@ end
 
 if ARGV.length == 0
   while cols > 0 do
-    print "#";
-    cols -= 1;
+    print "#"
+    cols -= 1
   end
   puts;
 else
   for arg in ARGV
     for i in 0..cols-1
-      print "#{arg[i%arg.length]}";
+      print "#{arg[i%arg.length]}"
     end
-    puts;
+    puts
   end
 end
