@@ -7,8 +7,11 @@
 
 %define SYSCALL        0x80
 
-%define SYS_EXIT       1
-%define SYS_WRITE      4
+%define SYS_EXIT       0x01
+%define SYS_WRITE      0x04
+%define SYS_IOCTL      0x36
+
+%define TIOCGWINSZ     0x5413
 
 %define STDIN_FILENO   0
 %define STDOUT_FILENO  1 
@@ -49,8 +52,23 @@ strlen:
     inc ebx
     ret
 
+; return ecx number of columns of output terminal
+get_cols:
+	mov eax, SYS_IOCTL
+	mov ebx, STDOUT_FILENO
+	mov ecx, TIOCGWINSZ
+	mov edx, winsize
+	int SYSCALL
+	cmp eax, -1
+	je get_cols_failed
+		mov cx, word [winsize+2] 
+		ret
+	get_cols_failed:
+		mov ecx, 80
+		ret
+
 _start:
-	mov ecx, 80
+	call get_cols
 	pop eax; argc
 
 	cmp  dword eax, 1
@@ -110,3 +128,6 @@ _start:
 section .data
 hash    db '#'
 newline db 10
+section .bss
+winsize resw 4
+
