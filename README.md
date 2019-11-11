@@ -22,7 +22,7 @@
 | hrlinx86.nasm***| x86 Assembly |        :x:       |        :x:       |     Linux only   | 
 
 \* Can only fetch width from ncurses module \
-\** Can only fetch width from COLUMNS environment variable
+\** Can only fetch width from COLUMNS environment variable \
 \*** Doesn't fetch width
 
 ## Usage
