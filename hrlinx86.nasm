@@ -2,7 +2,7 @@
 ; (c) Copyright 2019 Bartosz Mierzynski
 ; Written in NASM Linux x86 32-bit Assembly
 ;
-; nasm hrlinuxx86.nasm -f elf && ld -m elf_i386 -s -o hr hrlinuxx86.o
+; nasm hrlinx86.nasm -f elf && ld -m elf_i386 -s -o hr hrlinx86.o
 ;
 
 %define SYSCALL        0x80
