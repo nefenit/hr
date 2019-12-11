@@ -7,22 +7,8 @@
 #include <cstring>
 #ifdef __WIN32__
 #include <windows.h>
-  #if WINVER >= _WIN32_WINNT_WINXP  || _WIN32_WINNT >= _WIN32_WINNT_WINXP 
-    #define AMAX 8191
-  #else
-    #define AMAX 2047
-  #endif /* WINVER >= _WIN32_WINNT_WINXP  || _WIN32_WINNT >= _WIN32_WINNT_WINXP */
 #else
 #include <sys/ioctl.h>
-  #ifdef ARG_MAX
-    #define AMAX ARG_MAX
-  #else
-    #ifdef _POSIX_ARG_MAX
-      #define AMAX _POSIX_ARG_MAX
-    #else
-      #define AMAX 4096
-    #endif /* _POSIX_ARG_MAX */
-  #endif /* ARG_MAX */
 #endif /* __WIN32__ */
 
 
