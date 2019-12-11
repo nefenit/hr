@@ -14,7 +14,7 @@ def main():
         cols = getenv("COLUMNS")
         if cols == None or cols == "":
                 try:
-                        from os  import get_terminal_size
+                        from os import get_terminal_size
                         cols = get_terminal_size().columns
                 except OSError:
                         cols = 80
