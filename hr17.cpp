@@ -30,7 +30,7 @@ using std::cout, std::endl, std::strlen;
 
 int main(int argc, char *argv[]) {
 	auto cols = 0;
-	char* columns;
+	const char *columns;
 
 	if((columns = getenv("COLUMNS")) && (strlen(columns))) {
 		cols = atoi(columns);

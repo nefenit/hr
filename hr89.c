@@ -28,7 +28,7 @@
 
 int main(int argc, char *argv[]) {
  	int i, j, len, cols;
- 	char* columns;
+	const char *columns;
 #ifdef __WIN32__
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
 #else

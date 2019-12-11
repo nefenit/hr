@@ -28,7 +28,7 @@
 
 int main(int argc, char *argv[]) {
 	int cols;
-	char* columns;
+	const char *columns;
 
 	if((columns = getenv("COLUMNS")) && (strlen(columns))) {
 		cols = atoi(columns);

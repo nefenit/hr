@@ -31,7 +31,7 @@
 
 int main(int argc, char *argv[]) {
  	int i, j, len, cols;
- 	char* columns;
+ 	const char *columns;
 	wchar_t arg[AMAX];
 #ifdef __WIN32__
 	CONSOLE_SCREEN_BUFFER_INFO csbi;

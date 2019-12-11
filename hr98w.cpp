@@ -36,7 +36,7 @@ using std::mbstowcs;
 
 int main(int argc, char *argv[]) {
 	int cols;
-	char* columns;
+	const char *columns;
 	wchar_t arg[AMAX];
 
 	if((columns = getenv("COLUMNS")) && (strlen(columns))) {
