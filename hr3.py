@@ -5,13 +5,12 @@
  (c) Copyright 2019 Bartosz Mierzynski
 '''
 
-from sys import argv, exit, stdout
-from os  import getenv, get_terminal_size
-
 __author__    = "Bartosz Mierzynski"
 __copyright__ = "(c) Copyright 2019 Bartosz Mierzynski"
 
 def main():
+        from sys import argv, exit, stdout
+        from os  import getenv, get_terminal_size
         cols = getenv("COLUMNS")
         if cols == None or cols == "":
                 try:
