@@ -9,11 +9,12 @@ __author__    = "Bartosz Mierzynski"
 __copyright__ = "(c) Copyright 2019 Bartosz Mierzynski"
 
 def main():
-        from sys import argv, exit, stdout
-        from os  import getenv, get_terminal_size
+        from sys import argv, stdout
+        from os  import getenv 
         cols = getenv("COLUMNS")
         if cols == None or cols == "":
                 try:
+                        from os  import get_terminal_size
                         cols = get_terminal_size().columns
                 except OSError:
                         cols = 80
@@ -33,4 +34,5 @@ def main():
         return 0
 
 if __name__ == "__main__":
-	exit(main())
+    from sys import exit
+    exit(main())
