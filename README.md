@@ -10,6 +10,7 @@
 | hr98w.cpp    | C++98        |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | hr17w.cpp    | C++17        |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | hr3.py       | Python 3.x   |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+| Hr.java**    | Java 13      |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | hr.p6**      | Perl 6       |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 | hr.rb        | Ruby 2.x     |:heavy_check_mark:|     Untested     |:heavy_check_mark:|
 | hr89.c       | ANSI C (C89) |        :x:       |:heavy_check_mark:|:heavy_check_mark:|
