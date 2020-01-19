@@ -55,6 +55,7 @@ int main(int argc, char *argv[]) {
 	int n;
 
 	get_columns(&n);
+	
 	if(argc < 2)
 		hr1(n);
 	else
