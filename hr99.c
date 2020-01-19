@@ -1,5 +1,5 @@
 /* hr.c - writes horizontal bar to standard output
- * (c) Copyright 2019 Bartosz Mierzynski
+ * (c) Copyright 2019-2020 Bartosz Mierzynski
  * Written in C99
  */
  
@@ -12,40 +12,52 @@
 #include <sys/ioctl.h>
 #endif /* __WIN32__ */
 
-int main(int argc, char *argv[]) {
-	int cols;
+void get_columns(int *n) {
+#ifdef __WIN32__
+	const char                 *columns;
+	CONSOLE_SCREEN_BUFFER_INFO  csbi;
+
+	if((columns = getenv("COLUMNS")) && (strlen(columns)))
+		*n = atoi(columns);
+	else
+		if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
+			*n = csbi.dwSize.X;
+		else
+			*n = 80;
+#else
 	const char *columns;
+	struct winsize w;
 
 	if((columns = getenv("COLUMNS")) && (strlen(columns))) {
-		cols = atoi(columns);
+		*n = atoi(columns);
 	} else {
-#ifdef __WIN32__
-		CONSOLE_SCREEN_BUFFER_INFO csbi;
-		
-		if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
-			cols = csbi.dwSize.X;
-		else
-			cols = 80;
-#else
-		struct winsize w;
-		
 		ioctl(0, TIOCGWINSZ, &w);
-		cols = w.ws_col > 0 ? w.ws_col : 80;
+		*n = w.ws_col > 0 ? w.ws_col : 80;
+	}
 #endif /* __WIN32__ */
-	}
-	
-	if(argc < 2) {
-		while(cols--)
-			putchar('#');
-		putchar('\n');
-	} else {
-		for(int j = 1; j < argc; ++j) {
-			int len = strlen(argv[j]);
-			for(int i = 0; i < cols; ++i)
-				putchar(argv[j][i%len]);
-			putchar('\n');
-		}
-	}
-	
- 	return 0;
 }
+
+void hr1(int n) {
+	while(n--)
+		putchar('#');
+	putchar('\n');
+}
+
+void hr2(int n, const char *s) {
+	int len = strlen(s);
+	
+	for(int i = 0; i < n; ++i)
+		putchar(s[i % len]);
+	putchar('\n');
+}
+
+int main(int argc, char *argv[]) {
+	int n;
+
+	get_columns(&n);
+	if(argc < 2)
+		hr1(n);
+	else
+		for(--argc, ++argv; argc; --argc, ++argv)
+			hr2(n, *argv);
+ }
