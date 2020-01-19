@@ -1,36 +1,52 @@
+/* hr.c - writes horizontal bar to standard output
+ * (c) Copyright 2019-2020 Bartosz Mierzynski
+ */
+
 package hr;
 //import java.lang.*
 
 public class Hr /* extends Object */ {
-
-	public static void main(String[] args) {
-		char[] argarr;
-		String columns = "";
-		int    cols    = 0;
 	
+	public static int get_columns() {
+		String columns = "";
+		int    n       = 0;
+
 		try {
 			columns = System.getenv("COLUMNS");
-			cols = Integer.parseInt(columns.trim());
+			n = Integer.parseInt(columns.trim());
 		} catch(Exception e) {
 			//e.printStackTrace();
 			if(columns == null || columns.isEmpty())
-				cols = 80;
+				n = 80;
 		}
 
-		if(args.length == 0) {
-			while(cols-- > 0)
+		return n;
+	}
+
+	public static void hr(int n) {
+			while(n-- > 0)
 				System.out.print('#');
 			System.out.print('\n');
-		} else {
-			for(String arg : args) {
-				argarr = arg.toCharArray();
-				for(int i = 0; i < cols; ++i)
-					System.out.print(argarr[i%arg.length()]);
-				System.out.print('\n');
-			}
-		}
+	}
+
+	public static void hr(int n, String s) {
+		char[] arr = s.toCharArray();
 		
-		System.exit(0); //might be omitted
+		for(int i = 0; i < n; ++i)
+			System.out.print(arr[i % s.length()]);
+		System.out.print('\n');
+	}
+
+	public static void main(String[] args) {
+		int n = get_columns();
+		
+		if(args.length == 0)
+			hr(n);
+		else
+			for(String arg : args)
+				hr(n, arg);
+		
+		//System.exit(0);
 	}
 
 }
