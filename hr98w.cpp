@@ -68,7 +68,7 @@ void hr1(int n = 80) {
 void hr2(int n = 80, const char *s = "#") {
 	wchar_t arg[AMAX];
 	mbstowcs(arg, s, AMAX);
-	int len = wcslen(arg);
+	size_t len = wcslen(arg);
 	for(int i = 0; i < n; ++i)
 		wcout.put(arg[i%len]);
 	endl(wcout);
