@@ -1,37 +1,49 @@
 #!/usr/bin/env ruby
 =begin
 /* hr.c - writes horizontal bar to standard output
- * (c) Copyright 2019 Bartosz Mierzynski
- * Written in Ruby
+ * (c) Copyright 2019-2020 Bartosz Mierzynski
 =end
 
-def main
+def get_columns
   require 'io/console'
-  require 'pp'
-  cols = ENV["COLUMNS"]
-  if cols.nil? or cols == ""
-    rows, cols = IO.console.winsize	
+  n = ENV["COLUMNS"]
+  if n.nil? or n == ""
+    rows, n = IO.console.winsize	
   else
-    cols = cols.to_i
+    n = n.to_i
   end
+  return n
+end
 
-  if ARGV.length == 0
-    while cols > 0 do
-      print "#"
-      cols -= 1
-    end
-    puts
-  else
-    for arg in ARGV
-      for i in 0..cols-1
-        print "#{arg[i%arg.length]}"
-      end
-      puts
-    end
+def hr1 n = 80
+  while n > 0 do
+    print "#"
+    n -= 1
   end
-  return 0
+  puts
+end
+
+def hr2 n = 80, s = "#"
+  require 'pp'
+  for i in 0..n-1
+    print "#{s[i % s.length]}"
+  end
+  puts
+end
+
+def main
+  n = get_columns
+  case ARGV.length
+    when 0
+      hr1 n
+    else
+      for arg in ARGV
+        hr2 n, arg
+      end
+  end
+  #exit 0
 end
 
 if __FILE__ == $0
-  exit main
+  main
 end
