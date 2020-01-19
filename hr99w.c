@@ -62,10 +62,9 @@ void hr1(int n) {
 
 void hr2(int n, const char *s) {
 	wchar_t arg[AMAX];
-	size_t  len;
 
 	mbstowcs(arg, s, AMAX);
-	len = wcslen(arg);
+	size_t len = wcslen(arg);
 	for(int i = 0; i < n; ++i)
 		putwchar(arg[i%len]);
 	putwchar(L'\n');
