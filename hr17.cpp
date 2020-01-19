@@ -1,5 +1,5 @@
 /* hr.cpp - writes horizontal bar to terminal
- * (c) Copyright 2019 Bartosz Mierzynski
+ * (c) Copyright 2019-2020 Bartosz Mierzynski
  * Written in C++17
  */
 
@@ -11,41 +11,55 @@
 #include <sys/ioctl.h>
 #endif /* __WIN32__ */
 
-
 using std::cout, std::endl, std::strlen;
 
-int main(int argc, char *argv[]) {
-	auto cols = 0;
+void get_columns(int &n) {
+#ifdef __WIN32__
+	const char                 *columns;
+	CONSOLE_SCREEN_BUFFER_INFO  csbi;
+
+	if((columns = getenv("COLUMNS")) && (strlen(columns)))
+		n = atoi(columns);
+	else
+		if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
+			n = csbi.dwSize.X;
+		else
+			n = 80;
+#else
 	const char *columns;
+	struct winsize w;
 
 	if((columns = getenv("COLUMNS")) && (strlen(columns))) {
-		cols = atoi(columns);
+		n = atoi(columns);
 	} else {
-#ifdef __WIN32__
-		CONSOLE_SCREEN_BUFFER_INFO csbi;
-		
-		if(GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi))
-			cols = csbi.dwSize.X;
-		else
-			cols = 80;
-#else
-		winsize w;
-		
 		ioctl(0, TIOCGWINSZ, &w);
-		cols = w.ws_col > 0 ? w.ws_col : 80;
+		n = w.ws_col > 0 ? w.ws_col : 80;
+	}
 #endif /* __WIN32__ */
-	}
+}
+
+
+void hr1(int n = 80) {
+	while(n--)
+		cout.put('#');
+	endl(cout);
+}
+
+void hr2(int n = 80, const char *s = "#") {
+	auto len = strlen(s);
+	for(auto i = 0; i < n; ++i)
+		cout.put(s[i%len]);
+	endl(cout);
+}
+
+int main(int argc, char *argv[]) {
+	auto n = 0;
+
+	get_columns(n);
 	
-	if(argc < 2) {
-		while(cols--)
-			cout.put('#');
-		endl(cout);
-	} else {
-		for(auto j = 1; j < argc; ++j) {
-			auto len = strlen(argv[j]);
-			for(auto i = 0; i < cols; ++i)
-				cout.put(argv[j][i%len]);
-			endl(cout);
-		}
-	}
+	if(argc < 2)
+		hr1(n);
+	else
+		for(--argc, ++argv; argc; --argc, ++argv)
+			hr2(n, *argv);
 }
